@@ -1,0 +1,16 @@
+sudo: required
+
+language: ruby
+
+rvm:
+- 2.1.7
+- 2.2.3
+
+services:
+  - docker
+
+before_script:
+  - docker build -t changeworld/travisci-docker-sample .
+
+script:
+  - ruby -v; bundle; bundle exec rspec
